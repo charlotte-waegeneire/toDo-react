@@ -43,7 +43,7 @@ const IndexPage = () => {
                     </Link>
                         <TrashIcon onClick={handleDeleteList} className={buttonStyle}/>
                 </div>
-                <button class="flex justify-end" onClick={handleFilter}>
+                <button className="flex justify-end" onClick={handleFilter}>
                     {
                         filter === false ? (
                             <CheckIcon className="mr-2 w-6 h-6" />
