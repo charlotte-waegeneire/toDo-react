@@ -31,7 +31,7 @@ const Task = (props) => {
     )
 
     return (
-        <li className="flex justify-between w-full border-b border-gray-100 group p-2">
+        <li key={task.id} className="flex justify-between w-full border-b border-gray-100 group p-2">
             <div className="items-center pl-3">
                 <input type="checkbox"
                        value=""

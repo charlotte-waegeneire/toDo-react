@@ -5,7 +5,7 @@ import {useCallback} from "react";
 
 const List = (props) => {
     const {list, currentId} = props
-    const {setCurrentList, currentList} = useContext()
+    const {currentList, changeList} = useContext()
 
     const countTasks = list.tasks.length
     const countDone = list.tasks.filter(({isDone}) => Boolean(isDone)).length
@@ -16,9 +16,10 @@ const List = (props) => {
                 event.currentTarget.getAttribute("data-list-id"),
                 10
             )
-            setCurrentList(listId)
+
+            changeList(listId)
         },
-        []
+        [changeList]
     )
 
     return (
@@ -50,8 +51,8 @@ const List = (props) => {
                 {
                     currentList === currentId ? (
                         <div className="w-full bg-slate-300 rounded-full h-1">
-                            <div style={{width: (countDone/countTasks)*100 + "%"}}
-                                className="bg-green-600 h-1 rounded-lg duration-1000"></div>
+                            <div style={{width: (countDone / countTasks) * 100 + "%"}}
+                                 className="bg-green-600 h-1 rounded-lg duration-1000"></div>
                         </div>
                     ) : null
                 }
